@@ -11,6 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Auth::routes();
+
+Route::resource('users', 'UserController', ['only' => ['show', 'update', 'edit']]);
+
+Route::get('/', 'PageController@root')->name('root');
